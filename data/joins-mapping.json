@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "properties": {
+      "_join_type": {
+        "type": "join",
+        "relations": {
+          "post": "comment"
+        }
+      }
+    }
+  }
+}

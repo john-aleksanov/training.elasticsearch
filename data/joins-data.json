@@ -1,0 +1,12 @@
+{ "index" : { "_id" : "1", "_index" : "post-comments" } }
+{ "_join_type": { "name": "post" }, "post_title" : "Angel Has Fallen" }
+{ "index" : { "_id" : "2", "_index" : "post-comments" } }
+{ "_join_type": { "name": "post" }, "post_title" : "Beauty and the beast - a nice movie" }
+{ "index" : { "_id" : "A", "_index" : "post-comments", "routing": "1" } }
+{ "_join_type": { "name": "comment", "parent": "1" }, "comment_author": "Neil Soans", "comment_description": "'Angel has Fallen' has some redeeming qualities, but they're too few and far in between to justify its existence" }
+{ "index" : { "_id" : "B", "_index" : "post-comments", "routing": "1" } }
+{ "_join_type": { "name": "comment", "parent": "1" }, "comment_author": "Exiled Universe", "comment_description": "Best in the trilogy! This movie wasn't better than the Rambo movie but it was very very close." }
+{ "index" : { "_id" : "C", "_index" : "post-comments", "routing": "2" } }
+{ "_join_type": { "name": "comment", "parent": "2" }, "comment_author": "Emma Cochrane", "comment_description": "There's the sublime beauty of a forgotten world and the promise of happily-ever-after to draw you to one of your favourite fairy tales, once again. Give it an encore." }
+{ "index" : { "_id" : "D", "_index" : "post-comments", "routing": "2" } }
+{ "_join_type": { "name": "comment", "parent": "2" }, "comment_author": "Common Sense Media Editors", "comment_description": "Stellar music, brisk storytelling, delightful animation, and compelling characters make this both a great animated feature for kids and a great movie for anyone" }

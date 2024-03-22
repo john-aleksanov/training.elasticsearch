@@ -1,0 +1,18 @@
+{
+  "name": "Ana Brown",
+  "dob": "1993-03-19",
+  "address": {
+    "country": "Belarus",
+    "town": "Gomel"
+  },
+  "email": "anabrown9@gmail.com",
+  "skills": [
+    "Java",
+    "AWS"
+  ],
+  "experience": 10,
+  "rating": 9.2,
+  "description": "confident, ambitious, highly motivated Java experience interview learning python",
+  "verified": true,
+  "salary": 30000
+}
