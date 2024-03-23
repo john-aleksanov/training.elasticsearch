@@ -288,7 +288,47 @@ The suggest feature suggests similar looking terms based on a provided text by u
 alongside the query part in a _search request. If the query part is left out, only suggestions are returned.
 
 Let's ask Elasticsearch to suggest terms based on "Beaooty and the Beest":
+
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"suggest": {"text": "beaooty and the beest", "b-and-b-suggest": {"phrase": {"field": "post_title", "size": 3}}}}' http://localhost:9200/post-comments/_search
 ```
+
 Elasticsearch suggests three phrases: "beauty and the beast", "beaooty and the beast", and "beauty and the beest".
+
+### REST client
+
+#### Overview
+
+The `rest-client` Gradle sub-project showcases the usage of the low-level Elasticsearch REST client. The project is a very basic Spring Boot
+3 project that exposes several HTTP endpoints to perform operations on employees against the local Elasticsearch cluster spun up using
+[compose.yml](./compose.yml):
+
+1. Get all employees.
+2. Get an employee by ID.
+3. Search for employees having a specific text in a specific field.
+4. Calculate an aggregate statistic based on a specified field and group by another field.
+5. Add an employee to the index.
+6. Delete an employee by ID.
+
+The application also exposes Swagger at `http://localhost:8080/swagger-ui/index.html`.
+
+#### How to run
+
+Just build and run in your favorite IDE.
+
+#### Notes & Limitations
+
+This project serves as a basic example to demonstrate some Elasticsearch capabilities. Due to its simplicity, several shortcuts have been
+taken and certain hardcodings have been implemented. In a production setting, the following improvements would be made:
+
+1. Testing: Currently, no tests are available. A TDD approach would be adopted.
+2. Observability: Logging and performance metrics would be added.
+3. Exception handling: Currently, only happy path is supported and has been verified to work correctly. A robust exception handling
+   mechanism needs to be implemented for paths of sorrow / edge cases including segregating exceptions into domain-specific and platform /
+   infrastructure.
+4. Architecture: Domain-Driven Design (DDD) would be used for better decoupling, and an expressive package structure would be implemented.
+5. The `EmployeeController` class is a very shallow wrapper / proxy over `EmployeeService`. In a production setting, it would have more
+   responsibilities and wouldn't be as shallow.
+6. The `EmployeeService` class has certain code duplications relating to JSON operations. These would be reworked and extracted to a
+   separate infrastructure layer / ES client wrapper that would consume raw ES responses and transform them into domain objects.
+7. Etc., etc.

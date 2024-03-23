@@ -1,8 +1,9 @@
-### Gradle
+### Gradle ###
 /.gradle/
+**/build/
 
-### Elasticsearch mount
+### Elasticsearch mount ###
 /.elasticdata/
 
-### IntelliJ
+### IntelliJ ###
 /.idea/
