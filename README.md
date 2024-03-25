@@ -332,3 +332,17 @@ taken and certain hardcodings have been implemented. In a production setting, th
 6. The `EmployeeService` class has certain code duplications relating to JSON operations. These would be reworked and extracted to a
    separate infrastructure layer / ES client wrapper that would consume raw ES responses and transform them into domain objects.
 7. Etc., etc.
+
+### API client
+
+#### Overview
+
+The `api-client` Gradle sub-project showcases the usage of the high-level Elasticsearch API client. The project is almost identical to
+`rest-client` except for the `EmployeeService` class, which uses the Elasticsearch API client. The project exposes the same endpoints, and
+the same notes and limitations apply.
+
+One additional limitation is that, although the aggregation endpoint receives the aggregation statistic as a request parameter, only 
+the `avg` statistic is supported. This is because working with the API client involves using Elasticsearch API objects instead of parsing
+JSON responses. Those API objects, when it comes to aggregations, don't lend themselves to polymorphic treatment and need to be handled
+separately. Also, the aim of this project is to provide just an example of how one works with the ES API client rather than a comprehensive
+solution.
